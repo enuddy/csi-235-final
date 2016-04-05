@@ -37,7 +37,7 @@ public class Card {
 
     public String toString()
     {
-        return this.cName + "\n" + this.cCMC + "\n" + this.cColor + "\n";
+        return this.cName + "|" + this.cCMC + "|" + this.cColor;
     }
 
 
