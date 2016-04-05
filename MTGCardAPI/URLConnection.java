@@ -86,31 +86,4 @@ public class URLConnection {
 
         return cardArr;
     }
-
-    /*
-    public static Movie[] parseData(String movieStr, int numMovies)
-    {
-        Movie[] movieArr = new Movie[numMovies];
-        JSONArray jsonArr;
-        JSONObject moviesJson;
-
-        try {
-            moviesJson = new JSONObject(movieStr);
-            jsonArr = moviesJson.getJSONArray("results");
-
-            for(int i = 0; i < numMovies; i++) {
-                JSONObject obj = jsonArr.getJSONObject(i);
-                String title = obj.getString("title");
-                String overview = obj.getString("overview");
-                String release = obj.getString("release");
-                movieArr[i] = new Movie(title, release, overview);
-            }
-        }
-        catch(JSONException ex){
-            System.out.println(ex.getMessage());
-        }
-
-        return movieArr;
-    }
-    */
 }
