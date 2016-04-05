@@ -2,7 +2,6 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 /**
  * Created by Nick on 3/7/2016.
@@ -40,7 +39,7 @@ public class Server {
 
                 out.println(Integer.toString(numMovies));
 
-                if(!(cardJsonStr == null))
+                if(!(cardJsonStr.equals("[]\n")))
                     for(int i = 0; i < numMovies; i++)
                     {
                         out.println(arr[i].toString());
