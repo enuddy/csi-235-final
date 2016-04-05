@@ -41,8 +41,7 @@ public class Server {
                 if(!(cardJsonStr.equals("[]\n")))
                     for(int i = 0; i < numMovies; i++)
                     {
-                        out.print(arr[i].toString());
-                        out.flush();
+                        out.println(arr[i].toString());
                     }
                 else
                 {
