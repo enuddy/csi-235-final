@@ -33,7 +33,6 @@ public class Server {
                 System.out.println("Client request: " + inputLine);
 
                 cName = inputLine;
-                //numMovies = Integer.parseInt(inputLine.substring(inputLine.indexOf(' ') + 1));
                 String cardJsonStr = URLConnection.fetchData(cName);
                 Card[] arr = URLConnection.parseData(cardJsonStr);
 
@@ -42,7 +41,8 @@ public class Server {
                 if(!(cardJsonStr.equals("[]\n")))
                     for(int i = 0; i < numMovies; i++)
                     {
-                        out.println(arr[i].toString());
+                        out.print(arr[i].toString());
+                        out.flush();
                     }
                 else
                 {
