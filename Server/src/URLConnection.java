@@ -68,18 +68,29 @@ public class URLConnection {
                 // Use obj as a the current object in the array to grab data from (buffering for quicker access)
                 JSONObject obj = jsonArr.getJSONObject(i);
                 // An array of colors to access from the JSON object to be added to the card.
-                JSONArray color_arr;
+                JSONArray color_arr = null;
 
                 // Obtain the details neccesary for a card from the object.
                 String name = obj.getString("name");
                 String color = "";
 
                 // Collect the colors into a single string for the card object.
-                color_arr = obj.getJSONArray("colors");
-
-                for(int k = 0; k < color_arr.length(); k++) {
-                    color += color_arr.getString(k) + " ";
+                try {
+                    color_arr = obj.getJSONArray("colors");
+                    for(int k = 0; k < color_arr.length(); k++) {
+                        color += color_arr.getString(k) + " ";
+                    }
                 }
+                catch(JSONException ex)
+                {
+                    color = "Colorless";
+                }
+
+
+                if(color_arr == null) {
+                    color = "Colorless";
+                }
+
                 int cmc = obj.getInt("cmc");
 
                 // Create the card for the json information at this index i.
