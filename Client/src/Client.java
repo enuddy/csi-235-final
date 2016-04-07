@@ -24,7 +24,7 @@ public class Client {
                 System.out.println("Connected to server");
                 Scanner scanner = new Scanner(System.in);
                 while (true) {
-                    System.out.print("Enter a full or partial card name and how many results you would like (Goblin, 5): ");
+                    System.out.print("Enter a full or partial card name and how many results you would like (Goblin,5): ");
                     String inputLine = scanner.nextLine();
 
                     if ("quit".equalsIgnoreCase(inputLine)) {
