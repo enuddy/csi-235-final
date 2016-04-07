@@ -2,7 +2,7 @@
  * Created by Nick on 3/31/2016.
  */
 public class Card {
-    private String cName, cColor;
+    private String cName, cColor, cCost;
     private int cCMC;
 
     public String getcName() {
@@ -29,15 +29,16 @@ public class Card {
         this.cCMC = cCMC;
     }
 
-    public Card(String cName, String color, int cmc) {
+    public Card(String cName, String color, int cmc, String cost) {
         this.cName = cName;
         this.cColor = color;
         this.cCMC = cmc;
+        this.cCost = cost;
     }
 
     public String toString()
     {
-        return this.cName + "~" + this.cCMC + "~" + this.cColor;
+        return this.cName + "~" + "Converted Mana Cost: " +this.cCMC + "~" + "Cost: " + this.cCost + "~" + this.cColor;
     }
 
 

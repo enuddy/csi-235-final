@@ -71,8 +71,9 @@ public class URLConnection {
                 JSONArray color_arr = null;
 
                 // Obtain the details neccesary for a card from the object.
-                String name = obj.getString("name");
+                String name = "Card Name: " + obj.getString("name");
                 String color = "";
+                String cost;
 
                 // Collect the colors into a single string for the card object.
                 try {
@@ -83,18 +84,18 @@ public class URLConnection {
                 }
                 catch(JSONException ex)
                 {
-                    color = "Colorless";
+                    color = "Colors: Colorless";
                 }
 
+                cost = obj.getString("cost");
 
-                if(color_arr == null) {
-                    color = "Colorless";
-                }
+                if(cost.equals(""))
+                    cost = "{0}";
 
                 int cmc = obj.getInt("cmc");
 
                 // Create the card for the json information at this index i.
-                cardArr[i] = new Card(name, color, cmc);
+                cardArr[i] = new Card(name, color, cmc, cost);
             }
         }
         catch(JSONException ex)
