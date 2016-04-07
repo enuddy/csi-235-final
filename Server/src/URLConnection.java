@@ -76,6 +76,7 @@ public class URLConnection {
 
                 // Collect the colors into a single string for the card object.
                 color_arr = obj.getJSONArray("colors");
+
                 for(int k = 0; k < color_arr.length(); k++) {
                     color += color_arr.getString(k) + " ";
                 }
