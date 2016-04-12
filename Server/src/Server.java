@@ -21,14 +21,11 @@ public class Server {
             PrintWriter out = new PrintWriter(sSocket.getOutputStream(), true);
             String inputLine;
 
-
-
             while ((inputLine = br.readLine()) != null) {
                 System.out.println("Client request: " + inputLine);
 
-                // Split the client's request by , delimiter   TODO maybe check for whitespace here?
-                String cardName = inputLine.split(",")[0];
-                int    cardCount = Integer.parseInt(inputLine.split(",")[1]);
+                String cardName = inputLine.split(",")[0].trim();
+                int    cardCount = Integer.parseInt(inputLine.split(",")[1].trim());
 
                 // Access the API and get the amount of cards requested.
                 String cardJsonStr = URLConnection.fetchData(cardName);
@@ -36,16 +33,19 @@ public class Server {
 
                 // Send the information to the client if any is generated.
                 if(!(cardJsonStr.equals("[]\n"))) {
-                    for (int i = 0; i < cardCount; i++) {
+                    for (int i = 0; i < cardCount; i++)
                         out.print(arr[i].toString() + "~~"); // ~ = newline
-                    }
                     out.println("~");
                 }
                 else
-                {
                     out.println("There are no cards with that name.");
-                }
+
+                // send the end marker so the client knows the request has been completed.
+                out.println("[END]");
             }
+
+            System.out.println("Client has disconnected.");
+            sSocket.close();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
