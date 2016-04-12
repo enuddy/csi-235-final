@@ -84,7 +84,7 @@ public class URLConnection {
                 }
                 catch(JSONException ex)
                 {
-                    color = "Colors: Colorless";
+                    color = "Colorless";
                 }
 
                 cost = obj.getString("cost");

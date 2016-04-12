@@ -38,7 +38,8 @@ public class Card {
 
     public String toString()
     {
-        return this.cName + "~" + "Converted Mana Cost: " +this.cCMC + "~" + "Cost: " + this.cCost + "~" + this.cColor;
+        return this.cName + "~" + "Converted Mana Cost: " +this.cCMC + "~" + "Cost: " + this.cCost + "~"
+                + "Color(s): " + this.cColor;
     }
 
 
